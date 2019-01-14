@@ -19,6 +19,8 @@ The goals / steps of this project are the following:
 [image1]: ./pics/train_images.png "Training Set"
 [image2]: ./pics/plot_histogram_train.png "Training Set Histogram"
 [image3]: ./pics/histogram_equalized.png "Histogram Equalisation"
+[image4]: ./test_images/1.png  "Web Image 1"
+[image5]: ./test_images/2.png  "Web Image 2"
 
 
 
@@ -58,6 +60,8 @@ Number of classes = 43
 - Working on RGB images . 3 layer images. COnvert to YUV before Histogram Eq.
 - Histogram Equalization done to enhance contrast of low pixel intensity images. This is done in equilizer function. Equalization is done on Y and U and V is kept as such. (This idea was taken from the PDF shared along with the assignment)
 
+Equalized Histogram on train set [Check here][image3]
+
 - Generated More data:
    - More data was generated to increase the accuracy for test set . (was at o% accuracy. SO had to take up and add more data)
    - Generated More data under the section # SECTION _ MORE DATA (In[8] in ipython notebook)
@@ -73,6 +77,7 @@ Number of classes = 43
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 My final model consisted of the following layers:
+ - LeNet 5 Architecture is used
 
 | Layer         		|		Description								| 
 |:---------------------:|:---------------------------------------------:| 
@@ -98,6 +103,7 @@ To train I used.
 * EPOCHS = 40
 * BATCH_SIZE = 128
 * Learning rate = 0.001. 
+* Batch Size - 128
 
 - I think increasing the epochs sometimes causes overfitting.I am not sure here.
 
@@ -111,23 +117,27 @@ My final model results were:
 If an iterative approach was chosen:
 
 * What was the first architecture that was tried and why was it chosen? 
- - I choose the default architecute of LeNet 5 
+ - I choose the default architecute of LeNet 5 . And later on made changes to preprocessing steps. The output classes where changed from 10 to 43.
+ 
 * What were some problems with the initial architecture?
 - Main problem with the sample code was I could not use 3 layer images.Changed the filter size. And Lenet supports multichannel 32 x 32.
 
 * How was the architecture adjusted and why was it adjusted?
-- Used only max pool and relu activation functions.
+Adjusted the output classes from 10 to 43 ,to include all 43 predictions of traffic signals.
 * Which parameters were tuned? How were they adjusted and why?
+- THe only chosed hyperparameter by me was Epoch = 40. This was necessary to increase the accuracy on the train set. 
 * What are some of the important design choices and why were they chosen? 
-THe only chosed hyperparameter by me was Epoch = 40. This was necessary to increase the accuracy on the train set. 
-
- 
+-  Taking the Epoch 40 which drastically changed my prediction accuracy. And increase the in the number of training input
 
 ### Test a Model on New Images
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 Different German test images that are found on web are included in the test_images folder.
+
+Sample Images [Web 1][image4] && [Web 2][image5]
+
+Initially when I acquired the web images , they had the tilt in the images. So these new images did not give me any result at all with the initial architecture without any augumentation in images. This is the reason I added rotation of the images. A possibility is that a noisy image could not give proper predictions .
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set.
 
