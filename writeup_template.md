@@ -48,7 +48,7 @@ Number of classes = 43
 
 #### 2. Include an exploratory visualization of the dataset.
 
-* Shows some rain images with labels [here][image1]
+* Shows some train images with labels [here][image1]
 * Analyzed the histogram of the images as there some of the images are not clear to predict . [histogram of train set][image2]
 
 ### Design and Test a Model Architecture
@@ -95,11 +95,11 @@ My final model consisted of the following layers:
 #### 3. Training Model Parameters
 
 To train I used. 
-EPOCHS = 40
-BATCH_SIZE = 128
-Learnign rate = 0.001. 
+* EPOCHS = 40
+* BATCH_SIZE = 128
+* Learning rate = 0.001. 
 
-I think increasing the epochs sometimes causes overfitting.I am not sure here.
+- I think increasing the epochs sometimes causes overfitting.I am not sure here.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. 
 
